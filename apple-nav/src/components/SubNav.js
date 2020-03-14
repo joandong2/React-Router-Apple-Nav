@@ -10,11 +10,32 @@ const SubNav = (props) => {
     });
 
     return (
-        <ul>
-            {Object.keys(products.children).map((oneKey, i) => {
-                return <li key={i}>{products.children[oneKey]}</li>;
-            })}
-        </ul>
+        <div className="subNav">
+            <div className="wrapper">
+                <ul>
+                    {Object.keys(products.children).map((product, i) => {
+                        let productPath = props.toLowerCase(
+                            products.children[product]
+                        );
+                        return (
+                            <li key={i}>
+                                <p>
+                                    <img
+                                        src={require(`./images/${productPath}.png`)}
+                                        alt={productPath}
+                                        width="90"
+                                        height="70"
+                                    />
+                                </p>
+                                <span className="product-title">
+                                    {products.children[product]}
+                                </span>
+                            </li>
+                        );
+                    })}
+                </ul>
+            </div>
+        </div>
     );
 };
 

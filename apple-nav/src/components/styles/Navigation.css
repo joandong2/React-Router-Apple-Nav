@@ -1,3 +1,25 @@
+nav {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 10px 0;
+}
 nav a {
     color: #dadada;
+    text-decoration: unset;
+}
+.subNav {
+    border-bottom: 1px solid #ccc;
+}
+.subNav ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px 0 10px;
+    margin-top: 0;
+}
+.subNav ul li {
+    list-style-type: none;
+}
+.product-title {
+    font-weight: 500;
 }
