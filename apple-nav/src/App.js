@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
-
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 //import ReactDOM from "react-dom";
 import { Route, Link, NavLink, Switch } from "react-router-dom";
 import data from "./data";
@@ -37,22 +37,35 @@ const App = () => {
                     </nav>
                 </div>
             </div>
-            <Switch>
-                <Route exact path="/" component={Home} />
-                <Route path="/about" component={About} />
-                <Route
-                    path="/:productName"
-                    render={(props) => {
-                        return (
-                            <SubNav
-                                {...props}
-                                links={linksState}
-                                toLowerCase={toLowerCase}
-                            />
-                        );
-                    }}
-                />
-            </Switch>
+
+            <Route
+                render={({ location }) => (
+                    <TransitionGroup>
+                        <CSSTransition
+                            key={location.key}
+                            timeout={300}
+                            classNames="fade"
+                        >
+                            <Switch location={location}>
+                                <Route exact path="/" component={Home} />
+                                <Route path="/about" component={About} />
+                                <Route
+                                    path="/:productName"
+                                    render={(props) => {
+                                        return (
+                                            <SubNav
+                                                {...props}
+                                                links={linksState}
+                                                toLowerCase={toLowerCase}
+                                            />
+                                        );
+                                    }}
+                                />
+                            </Switch>
+                        </CSSTransition>
+                    </TransitionGroup>
+                )}
+            />
         </div>
     );
 };

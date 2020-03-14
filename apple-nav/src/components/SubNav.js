@@ -23,8 +23,8 @@ const SubNav = (props) => {
                                     <img
                                         src={require(`./images/${productPath}.png`)}
                                         alt={productPath}
-                                        width="90"
-                                        height="70"
+                                        width="80"
+                                        height="60"
                                     />
                                 </p>
                                 <span className="product-title">
