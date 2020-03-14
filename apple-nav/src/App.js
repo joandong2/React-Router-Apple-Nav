@@ -22,15 +22,15 @@ const App = () => {
             <div className="header">
                 <div className="wrapper">
                     <nav>
-                        <Link to="/">Home</Link>
+                        <NavLink to="/">Home</NavLink>
                         {linksState.map((link) => {
                             return (
-                                <Link
+                                <NavLink
                                     to={`/${toLowerCase(link.parent)}`}
                                     key={link.id}
                                 >
                                     {link.parent}
-                                </Link>
+                                </NavLink>
                             );
                         })}
                         <NavLink to="/about">About Me</NavLink>
